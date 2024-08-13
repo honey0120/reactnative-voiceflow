@@ -40,7 +40,7 @@ const Agent = () => {
                 justifyContent: 'center',
                 borderBottomWidth:1,
                 marginTop: 40,
-                marginBottom: 200,
+                marginBottom: 5,
             }}>
                 <Text style={{
                     fontSize: 32,
