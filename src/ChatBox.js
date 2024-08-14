@@ -4,6 +4,40 @@ import './ChatBox.css'; // Import CSS file for styling
 import PropTypes from 'prop-types';
 import {ButtonBox} from './Buttons';
 import TypingIndicator from './TypingIndicator';
+import { StyleSheet } from 'react-native'; 
+
+const styles = StyleSheet.create({
+      chatbox: {
+        flex: 1,
+        padding: 10,
+        paddingBottom: 40,
+        marginBottom: 5,
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'scroll',
+      },
+      message: {
+        backgroundColor: '#f2f2f2',
+        padding: 10,
+        borderRadius: 20,
+        marginBottom: 5,
+        alignSelf: 'flex-start',
+        sent: {
+            backgroundColor: '#FFAC2F',
+            color: '#fff',
+            alignSelf: 'flex-end',
+        },
+        received: {
+            backgroundColor: '#f2f2f2',
+            color: '#000',
+            alignSelf: 'flex-start',
+        },
+        messageLine: {
+            padding: 5,
+            fontSize: 'larger',
+        }
+    }
+  });
 
 const prepMessageSent = (message) => {
   return (
@@ -20,7 +54,7 @@ const prepMessageRecieved = (trace) => {
     return (
       <View>
         {trace.payload.message.split('\n').map((line, i) => {
-          return line ? <View className='messageLine' key={i}><Text>{line}</Text></View>: null;
+          return line ? <View style={styles.messageLine} key={i}><Text>{line}</Text></View>: null;
         })}
       </View>
     );
@@ -60,31 +94,23 @@ const prepMessageRecieved = (trace) => {
 };
 
 const ChatBox = ({messages, choices, isAwaitingResponse}) => {
-  const boxRef = React.useRef(null);
-
-//   React.useEffect(() => {
-//     boxRef.current?.getNode().scrollTo({
-//       top: boxRef.current.scrollHeight,
-//       behavior: 'smooth',
-//     });
-//   }, [messages]);
 
   return (
-    <View className="chat-box" ref={boxRef}>
+    <View style={styles.chatbox}>
       {messages.map((message, index) => (
         message.sender === 'user' ? (
-          <View className="message sent" key={index}>
+          <View style={styles.message.sent} key={index}>
             {prepMessageSent(message.content)}
           </View>
         ) : (
           prepMessageRecieved(message.content) === null ? null :
-            <View className="message recieved" key={index}>
+            <View style={styles.message.received} key={index}>
               {prepMessageRecieved(message.content)}
             </View>
         )
       ))}
       {isAwaitingResponse ?
-      <View className="message recieved">
+      <View style={styles.message.received}>
         <TypingIndicator />
       </View> : null}
       <ButtonBox choices={choices} />
