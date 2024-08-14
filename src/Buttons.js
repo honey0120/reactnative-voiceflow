@@ -1,17 +1,18 @@
 import React from 'react';
+import { View, Button } from "react-native";
 import PropTypes from 'prop-types';
 
 const ButtonBox = ({choices}) => {
   return (
-    <div className='choice-wrapper'>
+    <View className='choice-wrapper'>
       {Object.keys(choices).map((key, index) => (
-        <button className="choice-button" key={index} onClick={() => {
+        <Button className="choice-button" key={index} onClick={() => {
           choices[key].handler(choices[key]);
         }}>
           {choices[key].name}
-        </button>
+        </Button>
       ))}
-    </div>
+    </View>
   );
 };
 

@@ -12,7 +12,9 @@
     "axios": "^1.7.3",
     "expo": "~51.0.26",
     "expo-status-bar": "~1.12.1",
+    "lucide-react": "^0.427.0",
     "react": "18.2.0",
+    "react-hook-form": "^7.52.2",
     "react-native": "0.74.5",
     "react-native-gifted-chat": "^2.4.0"
   },
