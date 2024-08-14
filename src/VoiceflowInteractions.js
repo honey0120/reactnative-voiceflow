@@ -8,8 +8,6 @@ const vfInteract = async (user, userAction) => {
     action: userAction,
   };
 
-  console.log(API_KEY)
-
   const data = await fetch(interractionUrl, {
     headers: {
       'Authorization': API_KEY,
