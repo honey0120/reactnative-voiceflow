@@ -6,8 +6,6 @@ import { Axios } from "axios";
 const Agent = () => {
     const [messages, setMessages] = useState([])
 
-    const VOICEFLOW_API_KEY = 'VF.DM.66bbadc24291262cfd18631f.r3OasGOIa8LInKBr'
-
     const handleSend = async (newMessages = []) => {
             // Get the user's message
             const userMessage = newMessages[0];
