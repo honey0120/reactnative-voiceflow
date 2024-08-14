@@ -2,9 +2,17 @@ import { View, Text } from "react-native";
 import { React, useState } from "react";
 import { GiftedChat } from 'react-native-gifted-chat';
 import { Axios } from "axios";
+import useConversationState from './useConversationState';
 
 const Agent = () => {
-    const [messages, setMessages] = useState([])
+    const {
+        messages,
+        choices,
+        userSendAction,
+        userUpdateVariables,
+        isAwaitingResponse,
+      } =
+        useConversationState();
 
     const handleSend = async (newMessages = []) => {
             // Get the user's message
