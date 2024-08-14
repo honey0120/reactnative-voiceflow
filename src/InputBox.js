@@ -7,27 +7,27 @@ import { useForm, Controller } from "react-hook-form";
 
 
 const InputBox = ({userSendAction}) => {
-  const [inputValue, setInputValue] = useState('');
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      userInput: "",
-    },
-  })
+    const [inputValue, setInputValue] = useState('');
 
-  const onChange = (event) => {
-    setInputValue(event.target.value);
-  };
+    const {
+            control,
+            formState: { errors },
+        } = useForm({
+            defaultValues: {
+            userInput: "",
+            },
+        })
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    setInputValue('');
-    const userAction = {type: 'text', payload: inputValue};
-    userSendAction(inputValue, userAction);
-  };
+    const handleChange = (text) => {
+        setInputValue(text);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setInputValue('');
+        const userAction = {type: 'text', payload: inputValue};
+        userSendAction(inputValue, userAction);
+    };
 
     return (
       <View>
@@ -36,21 +36,27 @@ const InputBox = ({userSendAction}) => {
           rules={{
             required: true,
           }}
-          render={({ field: { onChange, onBlur, value } }) => (
+          render={({ field: { onBlur } }) => (
             <TextInput
               placeholder="User input"
               onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
+              onChangeText={text => handleChange(text)}
+              value={inputValue}
             />
           )}
           name="userInput"
         />
         {errors.userInput && <Text>This is required.</Text>}
   
-        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+        <Button title="Submit" onPress={handleSubmit}>
+            <SendHorizontal />
+        </Button>
       </View>
     );
+};
+
+InputBox.propTypes = {
+    userSendAction: PropTypes.func,
 };
 
 export default InputBox;

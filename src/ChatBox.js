@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, Image } from "react-native";
+import { View, Button, Image, Text } from "react-native";
 import './ChatBox.css'; // Import CSS file for styling
 import PropTypes from 'prop-types';
 import {ButtonBox} from './Buttons';
@@ -9,7 +9,7 @@ const prepMessageSent = (message) => {
   return (
     <View>
       {message.split('\n').map((line, i) => {
-        return line ? <View className='messageLine' key={i}>{line}</View>: null;
+        return line ? <View className='messageLine' key={i}><Text>{line}</Text></View>: null;
       })}
     </View>
   );
@@ -20,7 +20,7 @@ const prepMessageRecieved = (trace) => {
     return (
       <View>
         {trace.payload.message.split('\n').map((line, i) => {
-          return line ? <View className='messageLine' key={i}>{line}</View>: null;
+          return line ? <View className='messageLine' key={i}><Text>{line}</Text></View>: null;
         })}
       </View>
     );
@@ -34,14 +34,14 @@ const prepMessageRecieved = (trace) => {
     } else {
       return (
         <View>
-          {JSON.stringify(trace)}
+          <Text>{JSON.stringify(trace)}</Text>
         </View>
       );
     }
   } else if (trace.type === 'color_text') {
     return (
       <View className='messageLine' style={{color: trace.payload.color}}>
-        {trace.payload.text}
+        <Text>{trace.payload.text}</Text>
       </View>
     );
   } else if (
@@ -53,7 +53,7 @@ const prepMessageRecieved = (trace) => {
   } else {
     return (
       <View>
-        {JSON.stringify(trace)}
+        <Text>{JSON.stringify(trace)}</Text>
       </View>
     );
   }
