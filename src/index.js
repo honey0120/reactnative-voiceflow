@@ -1,8 +1,9 @@
 import { View, Text } from "react-native";
 import { React, useState } from "react";
 import { GiftedChat } from 'react-native-gifted-chat';
-import { Axios } from "axios";
 import useConversationState from './useConversationState';
+import ChatBox from './ChatBox';
+import InputBox from './InputBox';
 
 const Agent = () => {
     const {
@@ -53,10 +54,13 @@ const Agent = () => {
                     fontWeight: 'bold'
                 }}>Voiceflow Agent on Mobile!</Text>
             </View>
-            <GiftedChat 
-                messages={messages}
-                onSend={messages => handleSend(messages)}
-                user={{ _id:1}}
+            <ChatBox
+              messages={messages}
+              choices={choices}
+              isAwaitingResponse={isAwaitingResponse}
+            />
+            <InputBox
+              userSendAction={userSendAction}
             />
         </View>
     )
