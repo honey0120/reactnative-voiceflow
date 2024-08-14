@@ -1,4 +1,5 @@
 import React from 'react';
+import { View, Button, Image } from "react-native";
 import './ChatBox.css'; // Import CSS file for styling
 import PropTypes from 'prop-types';
 import {ButtonBox} from './Buttons';
@@ -6,42 +7,42 @@ import TypingIndicator from './TypingIndicator';
 
 const prepMessageSent = (message) => {
   return (
-    <div>
+    <View>
       {message.split('\n').map((line, i) => {
-        return line ? <div className='messageLine' key={i}>{line}</div>: null;
+        return line ? <View className='messageLine' key={i}>{line}</View>: null;
       })}
-    </div>
+    </View>
   );
 };
 
 const prepMessageRecieved = (trace) => {
   if (trace.type === 'text') {
     return (
-      <div>
+      <View>
         {trace.payload.message.split('\n').map((line, i) => {
-          return line ? <div className='messageLine' key={i}>{line}</div>: null;
+          return line ? <View className='messageLine' key={i}>{line}</View>: null;
         })}
-      </div>
+      </View>
     );
   } else if (trace.type === 'visual') {
     if (trace.payload.visualType === 'image') {
       return (
-        <img className="vf-image"
+        <Image className="vf-image"
           src={trace.payload.image} alt="VF Image"
         />
       );
     } else {
       return (
-        <div>
+        <View>
           {JSON.stringify(trace)}
-        </div>
+        </View>
       );
     }
   } else if (trace.type === 'color_text') {
     return (
-      <div className='messageLine' style={{color: trace.payload.color}}>
+      <View className='messageLine' style={{color: trace.payload.color}}>
         {trace.payload.text}
-      </div>
+      </View>
     );
   } else if (
     trace.type === 'choice' ||
@@ -51,9 +52,9 @@ const prepMessageRecieved = (trace) => {
     return (null);
   } else {
     return (
-      <div>
+      <View>
         {JSON.stringify(trace)}
-      </div>
+      </View>
     );
   }
 };
@@ -61,33 +62,33 @@ const prepMessageRecieved = (trace) => {
 const ChatBox = ({messages, choices, isAwaitingResponse}) => {
   const boxRef = React.useRef(null);
 
-  React.useEffect(() => {
-    boxRef.current.scrollTo({
-      top: boxRef.current.scrollHeight,
-      behavior: 'smooth',
-    });
-  }, [messages]);
+//   React.useEffect(() => {
+//     boxRef.current?.getNode().scrollTo({
+//       top: boxRef.current.scrollHeight,
+//       behavior: 'smooth',
+//     });
+//   }, [messages]);
 
   return (
-    <div className="chat-box" ref={boxRef}>
+    <View className="chat-box" ref={boxRef}>
       {messages.map((message, index) => (
         message.sender === 'user' ? (
-          <div className="message sent" key={index}>
+          <View className="message sent" key={index}>
             {prepMessageSent(message.content)}
-          </div>
+          </View>
         ) : (
           prepMessageRecieved(message.content) === null ? null :
-            <div className="message recieved" key={index}>
+            <View className="message recieved" key={index}>
               {prepMessageRecieved(message.content)}
-            </div>
+            </View>
         )
       ))}
       {isAwaitingResponse ?
-      <div className="message recieved">
+      <View className="message recieved">
         <TypingIndicator />
-      </div> : null}
+      </View> : null}
       <ButtonBox choices={choices} />
-    </div>
+    </View>
   );
 };
 

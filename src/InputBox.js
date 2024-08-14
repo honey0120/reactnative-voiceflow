@@ -2,37 +2,55 @@ import {SendHorizontal} from 'lucide-react';
 import React, {useState} from 'react';
 import './InputBox.css'; // Import CSS file for styling
 import PropTypes from 'prop-types';
+import { Text, View, TextInput, Button, Alert } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 
 
 const InputBox = ({userSendAction}) => {
   const [inputValue, setInputValue] = useState('');
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      userInput: "",
+    },
+  })
 
-  const handleChange = (event) => {
+  const onChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const onSubmit = (event) => {
     event.preventDefault();
     setInputValue('');
     const userAction = {type: 'text', payload: inputValue};
     userSendAction(inputValue, userAction);
   };
 
-  return (
-    <form className="input-box" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-        placeholder="Type a message..."
-      />
-      <button type="submit"><SendHorizontal /></button>
-    </form>
-  );
-};
-
-InputBox.propTypes = {
-  userSendAction: PropTypes.func,
+    return (
+      <View>
+        <Controller
+          control={control}
+          rules={{
+            required: true,
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <TextInput
+              placeholder="User input"
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+            />
+          )}
+          name="userInput"
+        />
+        {errors.userInput && <Text>This is required.</Text>}
+  
+        <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+      </View>
+    );
 };
 
 export default InputBox;
