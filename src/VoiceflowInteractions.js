@@ -1,4 +1,5 @@
-const API_KEY = process.env.VF_API_KEY;
+//Hide this in .env file eventually
+const API_KEY = 'VF.DM.66bbadc24291262cfd18631f.r3OasGOIa8LInKBr';
 
 const vfInteract = async (user, userAction) => {
   const interractionUrl = `https://general-runtime.voiceflow.com/state/user/${user}/interact`;
@@ -6,6 +7,8 @@ const vfInteract = async (user, userAction) => {
   const payload = {
     action: userAction,
   };
+
+  console.log(API_KEY)
 
   const data = await fetch(interractionUrl, {
     headers: {
