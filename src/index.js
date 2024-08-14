@@ -27,7 +27,9 @@ const Agent = () => {
             }}>
                 <Text style={{
                     fontSize: 32,
-                    fontWeight: 'bold'
+                    fontWeight: 'bold',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}>Voiceflow Agent on Mobile!</Text>
             </View>
             <ChatBox
