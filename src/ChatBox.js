@@ -39,16 +39,19 @@ const styles = StyleSheet.create({
                 color: '#454545'
             }
         },
-
+    },
+    vfImage: {
+        width: '100%'
     }
   });
 
 const prepMessageSent = (message) => {
   return (
     <View>
-      {message.split('\n').map((line, i) => {
-        return line ? <View key={i}><Text style={styles.message.sent.text}>{line}</Text></View>: null;
-      })}
+      {message ? <View>
+                <Text style={styles.message.received.text}>{message}</Text>
+            </View>: null
+        }
     </View>
   );
 };
@@ -57,15 +60,16 @@ const prepMessageRecieved = (trace) => {
   if (trace.type === 'text') {
     return (
       <View>
-        {trace.payload.message.split('\n').map((line, i) => {
-          return line ? <View key={i}><Text style={styles.message.received.text}>{line}</Text></View>: null;
-        })}
+        {trace.payload.message ? <View>
+                <Text style={styles.message.received.text}>{trace.payload.message}</Text>
+            </View>: null
+        }
       </View>
     );
   } else if (trace.type === 'visual') {
     if (trace.payload.visualType === 'image') {
       return (
-        <Image className="vf-image"
+        <Image style={styles.vfImage}
           src={trace.payload.image} alt="VF Image"
         />
       );
@@ -78,7 +82,7 @@ const prepMessageRecieved = (trace) => {
     }
   } else if (trace.type === 'color_text') {
     return (
-      <View className='messageLine' style={{color: trace.payload.color}}>
+      <View style={{color: trace.payload.color}}>
         <Text>{trace.payload.text}</Text>
       </View>
     );
