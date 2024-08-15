@@ -1,5 +1,5 @@
 //Hide this in .env file eventually
-const API_KEY = 'VF.DM.66bbadc24291262cfd18631f.r3OasGOIa8LInKBr';
+const API_KEY = 'VF.DM.66634ed7d088ba19d581810a.TPh4Uug2EAkIxZ4B';
 
 const vfInteract = async (user, userAction) => {
   const interractionUrl = `https://general-runtime.voiceflow.com/state/user/${user}/interact`;
