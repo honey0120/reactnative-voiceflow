@@ -15,7 +15,7 @@ const Agent = () => {
         useConversationState();
 
     return (
-        <View style={{ flex:1 }}>
+        <View style={{ flex:1, marginBottom: 35 }}>
             <View style={{
                 backgroundColor: 'white',
                 alignItems: 'center',
