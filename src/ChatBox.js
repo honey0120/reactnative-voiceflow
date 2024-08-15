@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         overflow: 'scroll',
+        contentOffset: {x: 0, y: 100},
       },
       message: {
         sent: {
@@ -22,6 +23,10 @@ const styles = StyleSheet.create({
             borderRadius: 20,
             backgroundColor: '#FFAC2F',
             alignSelf: 'flex-end',
+            text: {
+                fontSize: 16,
+                color: 'white'
+            }
         },
         received: {
             marginBottom: 5,
@@ -29,11 +34,12 @@ const styles = StyleSheet.create({
             borderRadius: 20,
             backgroundColor: '#f2f2f2',
             alignSelf: 'flex-start',
+            text: {
+                fontSize: 16,
+                color: '#454545'
+            }
         },
-        messageLine: {
-            padding: 10,
-            fontSize: 'larger',
-        }
+
     }
   });
 
@@ -41,7 +47,7 @@ const prepMessageSent = (message) => {
   return (
     <View>
       {message.split('\n').map((line, i) => {
-        return line ? <View style={styles.messageLine} key={i}><Text style={{color: 'white'}}>{line}</Text></View>: null;
+        return line ? <View key={i}><Text style={styles.message.sent.text}>{line}</Text></View>: null;
       })}
     </View>
   );
@@ -52,7 +58,7 @@ const prepMessageRecieved = (trace) => {
     return (
       <View>
         {trace.payload.message.split('\n').map((line, i) => {
-          return line ? <View style={styles.messageLine} key={i}><Text>{line}</Text></View>: null;
+          return line ? <View key={i}><Text style={styles.message.received.text}>{line}</Text></View>: null;
         })}
       </View>
     );

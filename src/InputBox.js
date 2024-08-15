@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TextInput, Pressable, StyleSheet } from "react-native";
+import { Text, View, TextInput, Pressable, StyleSheet, KeyboardAvoidingView, Platform } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 const styles = StyleSheet.create({
@@ -8,8 +8,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 10,
-        marginBottom: 50,
+        marginBottom: 20,
         marginHorizontal: 10,
         
         input: {
@@ -62,7 +61,8 @@ const InputBox = ({userSendAction}) => {
     };
 
     return (
-      <View style={styles.inputBox}>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <View style={styles.inputBox}  automaticallyAdjustKeyboardInsets={true}>
         <Controller
           control={control}
           rules={{
@@ -70,7 +70,7 @@ const InputBox = ({userSendAction}) => {
           }}
           render={({ field: { onBlur } }) => (
             <TextInput
-              placeholder="User input"
+              placeholder="Aa"
               onBlur={onBlur}
               onChangeText={text => handleChange(text)}
               value={inputValue}
@@ -86,6 +86,7 @@ const InputBox = ({userSendAction}) => {
         </Pressable>
         </View>
       </View>
+      </KeyboardAvoidingView>
     );
 };
 
