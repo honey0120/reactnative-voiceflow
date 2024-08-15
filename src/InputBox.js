@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
         },
         button: {
             paddingLeft: 10,
-            paddingRight: 20,
-            backgroundColor: '#FFAC2F',
-            color: '#fff',
+            paddingRight: 10,
+            backgroundColor: '#ff675c',
+            color: '#ff675c',
             border: 'none',
             borderRadius: 5,
             cursor: 'pointer',
@@ -73,10 +73,11 @@ const InputBox = ({userSendAction}) => {
           name="userInput"
         />
         {errors.userInput && <Text>This is required.</Text>}
-  
-        <Button style={styles.inputBox.button} title="Submit" onPress={handleSubmit}>
+        <View style={styles.inputBox.button}>
+        <Button title="Submit" onPress={handleSubmit}>
             <SendHorizontal />
         </Button>
+        </View>
       </View>
     );
 };

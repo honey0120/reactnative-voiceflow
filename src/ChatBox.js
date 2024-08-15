@@ -17,19 +17,18 @@ const styles = StyleSheet.create({
         overflow: 'scroll',
       },
       message: {
-        backgroundColor: '#f2f2f2',
-        padding: 10,
-        borderRadius: 20,
-        marginBottom: 5,
-        alignSelf: 'flex-start',
         sent: {
+            marginBottom: 5,
+            padding: 10,
+            borderRadius: 20,
             backgroundColor: '#FFAC2F',
-            color: '#fff',
             alignSelf: 'flex-end',
         },
         received: {
+            marginBottom: 5,
+            padding: 10,
+            borderRadius: 20,
             backgroundColor: '#f2f2f2',
-            color: '#000',
             alignSelf: 'flex-start',
         },
         messageLine: {
@@ -43,7 +42,7 @@ const prepMessageSent = (message) => {
   return (
     <View>
       {message.split('\n').map((line, i) => {
-        return line ? <View className='messageLine' key={i}><Text>{line}</Text></View>: null;
+        return line ? <View style={styles.messageLine} key={i}><Text>{line}</Text></View>: null;
       })}
     </View>
   );
