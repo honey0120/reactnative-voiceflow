@@ -17,20 +17,22 @@ const Agent = () => {
     return (
         <View style={{ flex:1 }}>
             <View style={{
-                backgroundColor: '#f8f5eb',
-                padding:10,
+                backgroundColor: 'white',
                 alignItems: 'center',
                 justifyContent: 'center',
-                borderBottomWidth:1,
+                borderBottomWidth:2,
+                borderColor: '#cccccc',
                 marginTop: 40,
                 marginBottom: 5,
             }}>
                 <Text style={{
-                    fontSize: 32,
-                    fontWeight: 'bold',
+                    fontSize: 28,
+                    color: '#FFAC2F',
+                    paddingTop: 20,
+                    paddingBottom: 10,
                     alignItems: 'center',
                     justifyContent: 'center',
-                }}>Voiceflow Agent on Mobile!</Text>
+                }}>Hotel Booking Agent</Text>
             </View>
             <ChatBox
               messages={messages}

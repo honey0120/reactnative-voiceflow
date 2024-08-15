@@ -1,31 +1,38 @@
-import {SendHorizontal} from 'lucide-react';
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TextInput, Button, StyleSheet } from "react-native";
+import { Text, View, TextInput, Pressable, StyleSheet } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 const styles = StyleSheet.create({
     inputBox: {
         display: 'flex',
+        flexDirection: 'row',
         alignItems: 'center',
         marginTop: 10,
-        paddingBottom: 50,
+        marginBottom: 50,
+        marginHorizontal: 10,
+        
         input: {
             flex: 1,
-            padding: 10,
-            border: 1,
-            borderRadius: 5,
-            marginRight: 10,
-            fontSize: 'larger',
+            padding: 8,
+            borderWidth: 2,
+            borderRadius: 15,
+            fontSize: 18,
+            borderColor: '#cccccc',
         },
         button: {
-            paddingLeft: 10,
-            paddingRight: 10,
-            backgroundColor: '#ff675c',
-            color: '#ff675c',
+            paddingLeft: 15,
+            paddingRight: 15,
+            padding: 10,
+            backgroundColor: '#FFAC2F',
+            color: '#FFAC2F',
             border: 'none',
-            borderRadius: 5,
+            borderRadius: 15,
             cursor: 'pointer',
+        },
+        buttonText: {
+            fontSize: 18,
+            color: 'white',
         }
     }
 });
@@ -74,9 +81,9 @@ const InputBox = ({userSendAction}) => {
         />
         {errors.userInput && <Text>This is required.</Text>}
         <View style={styles.inputBox.button}>
-        <Button title="Submit" onPress={handleSubmit}>
-            <SendHorizontal />
-        </Button>
+        <Pressable onPress={handleSubmit}>
+            <Text style={styles.inputBox.buttonText}>{"Send"}</Text>
+        </Pressable>
         </View>
       </View>
     );

@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Button, Image, Text } from "react-native";
-import './ChatBox.css'; // Import CSS file for styling
+import { View, ScrollView, Image, Text } from "react-native";
 import PropTypes from 'prop-types';
 import {ButtonBox} from './Buttons';
 import TypingIndicator from './TypingIndicator';
@@ -42,7 +41,7 @@ const prepMessageSent = (message) => {
   return (
     <View>
       {message.split('\n').map((line, i) => {
-        return line ? <View style={styles.messageLine} key={i}><Text>{line}</Text></View>: null;
+        return line ? <View style={styles.messageLine} key={i}><Text style={{color: 'white'}}>{line}</Text></View>: null;
       })}
     </View>
   );
@@ -95,7 +94,7 @@ const prepMessageRecieved = (trace) => {
 const ChatBox = ({messages, choices, isAwaitingResponse}) => {
 
   return (
-    <View style={styles.chatbox}>
+    <ScrollView style={styles.chatbox}>
       {messages.map((message, index) => (
         message.sender === 'user' ? (
           <View style={styles.message.sent} key={index}>
@@ -113,7 +112,7 @@ const ChatBox = ({messages, choices, isAwaitingResponse}) => {
         <TypingIndicator />
       </View> : null}
       <ButtonBox choices={choices} />
-    </View>
+    </ScrollView>
   );
 };
 
