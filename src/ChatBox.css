@@ -7,31 +7,6 @@
     overflow-y: auto;
 }
 
-.message {
-    background-color: #f2f2f2;
-    padding: 5px 10px;
-    border-radius: 20px;
-    margin-bottom: 5px;
-    align-self: flex-start;
-}
-
-.message.sent {
-    background-color: #FFAC2F;
-    color: #fff;
-    align-self: flex-end;
-}
-
-.message.received {
-    background-color: #f2f2f2;
-    color: #000;
-    align-self: flex-start;
-}
-
-.messageLine {
-    padding: 5px;
-    font-size: larger;
-}
-
 .vf-image {
     width: 100%;
 }

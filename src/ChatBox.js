@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
       chatbox: {
         flex: 1,
         padding: 10,
-        paddingBottom: 40,
+        paddingBottom: 50,
         marginBottom: 5,
         display: 'flex',
         flexDirection: 'column',
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
             alignSelf: 'flex-start',
         },
         messageLine: {
-            padding: 5,
+            padding: 10,
             fontSize: 'larger',
         }
     }
