@@ -49,7 +49,7 @@ const prepMessageSent = (message) => {
   return (
     <View>
       {message ? <View>
-                <Text style={styles.message.received.text}>{message}</Text>
+                <Text style={styles.message.sent.text}>{message}</Text>
             </View>: null
         }
     </View>
