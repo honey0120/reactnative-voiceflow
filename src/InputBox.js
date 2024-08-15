@@ -70,6 +70,7 @@ const InputBox = ({userSendAction}) => {
           }}
           render={({ field: { onBlur } }) => (
             <TextInput
+              multiline={true}
               placeholder="Aa"
               onBlur={onBlur}
               onChangeText={text => handleChange(text)}
