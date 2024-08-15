@@ -1,9 +1,34 @@
 import {SendHorizontal} from 'lucide-react';
 import React, {useState} from 'react';
-import './InputBox.css'; // Import CSS file for styling
 import PropTypes from 'prop-types';
-import { Text, View, TextInput, Button, Alert } from "react-native";
+import { Text, View, TextInput, Button, StyleSheet } from "react-native";
 import { useForm, Controller } from "react-hook-form";
+
+const styles = StyleSheet.create({
+    inputBox: {
+        display: 'flex',
+        alignItems: 'center',
+        marginTop: 10,
+        paddingBottom: 50,
+        input: {
+            flex: 1,
+            padding: 10,
+            border: 1,
+            borderRadius: 5,
+            marginRight: 10,
+            fontSize: 'larger',
+        },
+        button: {
+            paddingLeft: 10,
+            paddingRight: 20,
+            backgroundColor: '#FFAC2F',
+            color: '#fff',
+            border: 'none',
+            borderRadius: 5,
+            cursor: 'pointer',
+        }
+    }
+});
 
 
 const InputBox = ({userSendAction}) => {
@@ -30,7 +55,7 @@ const InputBox = ({userSendAction}) => {
     };
 
     return (
-      <View>
+      <View style={styles.inputBox}>
         <Controller
           control={control}
           rules={{
@@ -42,13 +67,14 @@ const InputBox = ({userSendAction}) => {
               onBlur={onBlur}
               onChangeText={text => handleChange(text)}
               value={inputValue}
+              style={styles.inputBox.input}
             />
           )}
           name="userInput"
         />
         {errors.userInput && <Text>This is required.</Text>}
   
-        <Button title="Submit" onPress={handleSubmit}>
+        <Button style={styles.inputBox.button} title="Submit" onPress={handleSubmit}>
             <SendHorizontal />
         </Button>
       </View>
