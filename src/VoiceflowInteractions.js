@@ -1,5 +1,5 @@
-//Hide this in .env file eventually
-const API_KEY = 'VF.DM.66634ed7d088ba19d581810a.TPh4Uug2EAkIxZ4B';
+//Hide this better eventually
+const EXPO_PUBLIC_VF_API_KEY = process.env.EXPO_PUBLIC_VF_API_KEY;
 
 const vfInteract = async (user, userAction) => {
   const interractionUrl = `https://general-runtime.voiceflow.com/state/user/${user}/interact`;
@@ -10,7 +10,7 @@ const vfInteract = async (user, userAction) => {
 
   const data = await fetch(interractionUrl, {
     headers: {
-      'Authorization': API_KEY,
+      'Authorization': EXPO_PUBLIC_VF_API_KEY,
       'accept': 'application/json',
       'content-type': 'application/json',
       'versionID': 'production',
@@ -18,7 +18,6 @@ const vfInteract = async (user, userAction) => {
     method: 'POST',
     body: JSON.stringify(payload),
   });
-
   const postRes = await data.json();
   return postRes;
 };

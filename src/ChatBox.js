@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
         },
     },
     vfImage: {
-        width: '100%'
+        width: 300,
+        height: 300,
     }
   });
 
@@ -68,9 +69,13 @@ const prepMessageRecieved = (trace) => {
     );
   } else if (trace.type === 'visual') {
     if (trace.payload.visualType === 'image') {
+        console.log(trace.payload.image)
       return (
         <Image style={styles.vfImage}
-          src={trace.payload.image} alt="VF Image"
+        source={{
+            uri: `${trace.payload.image}`,
+              }
+          } alt="VF Image"
         />
       );
     } else {
