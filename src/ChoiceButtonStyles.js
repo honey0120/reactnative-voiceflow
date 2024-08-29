@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'; 
 
-export const buttonsStyles = StyleSheet.create({
+export const choiceButtonStyles = StyleSheet.create({
     choice: {
         button: {
             margin: 5,
