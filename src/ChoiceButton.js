@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, Pressable, Text } from "react-native";
 import PropTypes from 'prop-types';
-import { buttonsStyles } from './ButtonsStyles';
+import { choiceButtonStyles } from './ChoiceButtonStyles';
 
-const ButtonBox = ({choices}) => {
+const ChoiceButton = ({choices}) => {
   return (
     <View>
       {Object.keys(choices).map((key, index) => (
-        <View style={buttonsStyles.choice.button}>
+        <View style={choiceButtonStyles.choice.button}>
             <Pressable key={index} onClick={() => {
                 choices[key].handler(choices[key]);
             }}>
-                <Text style={buttonsStyles.choice.buttonText}>{choices[key].name}</Text>
+                <Text style={choiceButtonStyles.choice.buttonText}>{choices[key].name}</Text>
             </Pressable>
         </View>
       ))}
@@ -19,8 +19,8 @@ const ButtonBox = ({choices}) => {
   );
 };
 
-ButtonBox.propTypes = {
+ChoiceButton.propTypes = {
   choices: PropTypes.object,
 };
 
-export {ButtonBox};
+export {ChoiceButton};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ScrollView, Image, Text } from "react-native";
 import PropTypes from 'prop-types';
-import {ButtonBox} from './Buttons';
+import { ChoiceButton } from './ChoiceButton';
 import TypingIndicator from './TypingIndicator';
 import { chatBoxStyles } from './ChatBoxStyles';
 import { imageStyles } from './ImageStyles';
@@ -85,7 +85,7 @@ const ChatBox = ({messages, choices, isAwaitingResponse}) => {
       <View style={chatBoxStyles.message.received}>
         <TypingIndicator />
       </View> : null}
-      <ButtonBox choices={choices} />
+      <ChoiceButton choices={choices} />
     </ScrollView>
   );
 };
