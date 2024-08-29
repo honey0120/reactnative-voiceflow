@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {ButtonBox} from './Buttons';
 import TypingIndicator from './TypingIndicator';
 import { chatBoxStyles } from './ChatBoxStyles';
+import { imageStyles } from './ImageStyles';
 
 const prepMessageSent = (message) => {
   return (
@@ -28,13 +29,12 @@ const prepMessageRecieved = (trace) => {
     );
   } else if (trace.type === 'visual') {
     if (trace.payload.visualType === 'image') {
-        console.log(trace.payload.image)
       return (
-        <Image style={chatBoxStyles.vfImage}
+        <Image style={imageStyles.image}
         source={{
             uri: `${trace.payload.image}`,
               }
-          } alt="VF Image"
+          } alt="Image trace"
         />
       );
     } else {
