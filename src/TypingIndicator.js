@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 
 const TypingIndicator = () => (
   <View className="typing-indicator">
-    <Text>{"..."}</Text>
+    <Text>{"     "}</Text>
   </View>
 );
 
