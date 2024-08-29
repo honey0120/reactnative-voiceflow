@@ -55,7 +55,7 @@ const prepMessageRecieved = (trace) => {
     trace.type === 'path' ||
     trace.type === 'suggest_question_buttons'
   ) {
-    return (null);
+    return (null); //rip Alex didn't handle the choice buttons
   } else {
     return (
       <View>
