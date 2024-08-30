@@ -2,20 +2,21 @@ import { StyleSheet } from 'react-native';
 
 export const cardButtonStyles = StyleSheet.create({
     button: {
-        margin: 5,
         backgroundColor: 'white',
-        borderWidth: 2,
-        borderColor: '#FFAC2F',
-        borderRadius: 20,
+        borderTopWidth: 1,
+        marginTop: 10,
+        borderTopColor: '#cccccc',
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
         cursor: 'pointer',
         alignItems: 'center',
         justifyContent: 'center',
     },
     buttonText: {
-        fontSize: 16,
-        color: '#FFAC2F',
+        fontSize: 18,
+        fontWeight: '500',
+        color: '#3D81E2',
         paddingTop: 10,
         paddingBottom: 10,
-
     }
 });

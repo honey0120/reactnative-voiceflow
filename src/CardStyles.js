@@ -24,17 +24,22 @@ export const cardStyles = StyleSheet.create({
     borderBottomColor: '#cccccc',
     borderLeftColor: '#cccccc',
     borderRightColor: '#cccccc',
-    padding: 10,
     borderLeftWidth: 1,
     borderRightWidth: 1,
     borderBottomWidth: 1,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     descriptionText: {
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 5,
         fontSize: 16,
         color: '#454545'
     },
     titleText: {
+        marginLeft: 10,
+        marginRight: 10,
+        marginTop: 5,
         fontSize: 20,
         fontWeight: 500, //~400 is normal
         color: '#FFAC2F'
