@@ -14,7 +14,7 @@ export const cardStyles = StyleSheet.create({
     width: 250,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.2,
     shadowRadius: 20,  
     elevation: 5, // for Android - idk what this would look like
     borderRadius: 20,

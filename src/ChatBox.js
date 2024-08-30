@@ -54,7 +54,7 @@ const prepMessageRecieved = (trace) => {
     )
 } else if (trace.type === 'carousel') {
     return (
-        <MyCarousel />
+        <MyCarousel cards={trace.payload.cards}/>
     )
 } else if (trace.type === 'color_text') {
     return (
