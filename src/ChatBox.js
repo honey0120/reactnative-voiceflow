@@ -5,6 +5,7 @@ import { ChoiceButton } from './ChoiceButton';
 import TypingIndicator from './TypingIndicator';
 import { chatBoxStyles } from './ChatBoxStyles';
 import { imageStyles } from './ImageStyles';
+import { Card } from './Card';
 
 const prepMessageSent = (message) => {
   return (
@@ -21,7 +22,7 @@ const prepMessageRecieved = (trace) => {
   if (trace.type === 'text') {
     return (
       <View>
-        {trace.payload.message ? <View>
+        {trace.payload.message ? <View style={chatBoxStyles.message.received} >
                 <Text style={chatBoxStyles.message.received.text}>{trace.payload.message}</Text>
             </View>: null
         }
@@ -30,21 +31,27 @@ const prepMessageRecieved = (trace) => {
   } else if (trace.type === 'visual') {
     if (trace.payload.visualType === 'image') {
       return (
-        <Image style={imageStyles.image}
-        source={{
-            uri: `${trace.payload.image}`,
-              }
-          } alt="Image trace"
-        />
+        <View>
+            <Image style={imageStyles.image}
+                source={{
+                    uri: `${trace.payload.image}`,
+                    }
+                } alt="Image trace"
+            />
+        </View>
       );
     } else {
       return (
-        <View>
+        <View style={chatBoxStyles.message.received}>
           <Text>{JSON.stringify(trace)}</Text>
         </View>
       );
     }
-  } else if (trace.type === 'color_text') {
+  } else if (trace.type === 'cardV2') {
+    return (
+        <Card trace={trace}/>
+    )
+} else if (trace.type === 'color_text') {
     return (
       <View style={{color: trace.payload.color}}>
         <Text>{trace.payload.text}</Text>
@@ -58,7 +65,7 @@ const prepMessageRecieved = (trace) => {
     return (null); //rip Alex didn't handle the choice buttons
   } else {
     return (
-      <View>
+      <View style={chatBoxStyles.message.received}>
         <Text>{JSON.stringify(trace)}</Text>
       </View>
     );
@@ -76,7 +83,7 @@ const ChatBox = ({messages, choices, isAwaitingResponse}) => {
           </View>
         ) : (
           prepMessageRecieved(message.content) === null ? null :
-            <View style={chatBoxStyles.message.received} key={index}>
+            <View key={index}>
               {prepMessageRecieved(message.content)}
             </View>
         )
