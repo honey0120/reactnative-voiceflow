@@ -33,6 +33,7 @@ export const cardStyles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginTop: 5,
+        marginBottom:15,
         fontSize: 16,
         color: '#454545'
     },

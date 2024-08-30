@@ -4,7 +4,6 @@ export const cardButtonStyles = StyleSheet.create({
     button: {
         backgroundColor: 'white',
         borderTopWidth: 1,
-        marginTop: 10,
         borderTopColor: '#cccccc',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
