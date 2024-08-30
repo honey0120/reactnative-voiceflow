@@ -49,7 +49,7 @@ const prepMessageRecieved = (trace) => {
     }
   } else if (trace.type === 'cardV2') {
     return (
-        <Card trace={trace}/>
+        <Card payload={trace.payload}/>
     )
 } else if (trace.type === 'color_text') {
     return (
