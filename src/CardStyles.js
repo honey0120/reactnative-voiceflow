@@ -10,7 +10,8 @@ export const cardStyles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     marginTop: 5,
-    marginBottom: 10,
+    marginBottom: 15,
+    marginLeft: 10,
     width: 250,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
