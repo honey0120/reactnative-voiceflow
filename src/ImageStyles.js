@@ -5,6 +5,7 @@ export const imageStyles = StyleSheet.create({
       width: 300,
       height: 300,
       borderRadius: 20,
-      marginBottom: 5
+      marginBottom: 5,
+      marginLeft: 10
   }
 });

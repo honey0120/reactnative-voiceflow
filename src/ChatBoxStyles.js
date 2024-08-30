@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 export const chatBoxStyles = StyleSheet.create({
     chatbox: {
       flex: 1,
-      padding: 10,
       paddingBottom: 50,
       marginBottom: 5,
       display: 'flex',
@@ -15,6 +14,8 @@ export const chatBoxStyles = StyleSheet.create({
     message: {
       sent: {
           marginBottom: 5,
+          marginRight: 10,
+          marginLeft: 10,
           padding: 10,
           borderRadius: 20,
           backgroundColor: '#FFAC2F',
@@ -26,6 +27,8 @@ export const chatBoxStyles = StyleSheet.create({
       },
       received: {
           marginBottom: 5,
+          marginLeft: 10,
+          marginRight: 10,
           padding: 10,
           borderRadius: 20,
           backgroundColor: '#f2f2f2',
