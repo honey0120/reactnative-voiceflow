@@ -67,7 +67,7 @@ const prepMessageRecieved = (trace) => {
     trace.type === 'path' ||
     trace.type === 'suggest_question_buttons'
   ) {
-    return (null); //rip Alex didn't handle the choice buttons
+    return (null); //Handled further down
   } else {
     return (
       <View style={chatBoxStyles.message.received}>
