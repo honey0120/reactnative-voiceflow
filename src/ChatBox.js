@@ -6,6 +6,7 @@ import TypingIndicator from './TypingIndicator';
 import { chatBoxStyles } from './ChatBoxStyles';
 import { imageStyles } from './ImageStyles';
 import { Card } from './Card';
+import { MyCarousel } from './Carousel';
 
 const prepMessageSent = (message) => {
   return (
@@ -50,6 +51,10 @@ const prepMessageRecieved = (trace) => {
   } else if (trace.type === 'cardV2') {
     return (
         <Card payload={trace.payload}/>
+    )
+} else if (trace.type === 'carousel') {
+    return (
+        <MyCarousel />
     )
 } else if (trace.type === 'color_text') {
     return (

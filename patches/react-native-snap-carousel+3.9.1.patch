@@ -1,0 +1,70 @@
+diff --git a/node_modules/react-native-snap-carousel/src/carousel/Carousel.js b/node_modules/react-native-snap-carousel/src/carousel/Carousel.js
+index dae71a3..7fe2429 100644
+--- a/node_modules/react-native-snap-carousel/src/carousel/Carousel.js
++++ b/node_modules/react-native-snap-carousel/src/carousel/Carousel.js
+@@ -1,5 +1,5 @@
+ import React, { Component } from 'react';
+-import { Animated, Easing, FlatList, I18nManager, Platform, ScrollView, View, ViewPropTypes } from 'react-native';
++import { Animated, Easing, FlatList, I18nManager, Platform, ScrollView, View, ViewPropTypes, ViewStyle } from 'react-native';
+ import PropTypes from 'prop-types';
+ import shallowCompare from 'react-addons-shallow-compare';
+ import {
+@@ -43,8 +43,8 @@ export default class Carousel extends Component {
+         autoplayDelay: PropTypes.number,
+         autoplayInterval: PropTypes.number,
+         callbackOffsetMargin: PropTypes.number,
+-        containerCustomStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+-        contentContainerCustomStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
++        containerCustomStyle: ViewStyle,
++        contentContainerCustomStyle: ViewStyle,
+         enableMomentum: PropTypes.bool,
+         enableSnap: PropTypes.bool,
+         firstItem: PropTypes.number,
+@@ -61,7 +61,7 @@ export default class Carousel extends Component {
+         scrollEnabled: PropTypes.bool,
+         scrollInterpolator: PropTypes.func,
+         slideInterpolatedStyle: PropTypes.func,
+-        slideStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
++        slideStyle: ViewStyle,
+         shouldOptimizeUpdates: PropTypes.bool,
+         swipeThreshold: PropTypes.number,
+         useScrollView: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+@@ -70,38 +70,6 @@ export default class Carousel extends Component {
+         onSnapToItem: PropTypes.func
+     };
+ 
+-    static defaultProps = {
+-        activeAnimationType: 'timing',
+-        activeAnimationOptions: null,
+-        activeSlideAlignment: 'center',
+-        activeSlideOffset: 20,
+-        apparitionDelay: 0,
+-        autoplay: false,
+-        autoplayDelay: 1000,
+-        autoplayInterval: 3000,
+-        callbackOffsetMargin: 5,
+-        containerCustomStyle: {},
+-        contentContainerCustomStyle: {},
+-        enableMomentum: false,
+-        enableSnap: true,
+-        firstItem: 0,
+-        hasParallaxImages: false,
+-        inactiveSlideOpacity: 0.7,
+-        inactiveSlideScale: 0.9,
+-        inactiveSlideShift: 0,
+-        layout: 'default',
+-        lockScrollTimeoutDuration: 1000,
+-        lockScrollWhileSnapping: false,
+-        loop: false,
+-        loopClonesPerSide: 3,
+-        scrollEnabled: true,
+-        slideStyle: {},
+-        shouldOptimizeUpdates: true,
+-        swipeThreshold: 20,
+-        useScrollView: !AnimatedFlatList,
+-        vertical: false
+-    }
+-
+     constructor (props) {
+         super(props);
+ 

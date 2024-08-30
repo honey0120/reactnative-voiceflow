@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "axios": "^1.7.3",
@@ -14,10 +15,13 @@
     "expo": "~51.0.26",
     "expo-status-bar": "~1.12.1",
     "lucide-react": "^0.427.0",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "react": "18.2.0",
     "react-hook-form": "^7.52.2",
     "react-native": "0.74.5",
-    "react-native-gifted-chat": "^2.4.0"
+    "react-native-gifted-chat": "^2.4.0",
+    "react-native-snap-carousel": "^3.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
