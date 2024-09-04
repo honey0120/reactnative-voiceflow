@@ -7,7 +7,7 @@ const CardButton = ({buttons}) => {
   return (
     <View>
       {Object.keys(buttons).map((key, index) => (
-        <View style={cardButtonStyles.button}>
+        <View style={cardButtonStyles.button} key={index}>
             <Pressable key={index} onPress={() => {
                 console.log("Card Button Pressed");
                 //To-do: Check which action to use
@@ -24,7 +24,7 @@ const CardButton = ({buttons}) => {
 };
 
 CardButton.propTypes = {
-  buttons: PropTypes.object,
+  buttons: PropTypes.array,
 };
 
 export {CardButton};
