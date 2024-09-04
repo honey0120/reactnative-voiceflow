@@ -7,11 +7,11 @@ const ChoiceButton = ({choices}) => {
   return (
     <View>
       {Object.keys(choices).map((key, index) => (
-        <View style={choiceButtonStyles.choice.button}>
+        <View style={choiceButtonStyles.choice.button} key={index}>
             <Pressable key={index} onPress={() => {
                 choices[key].handler(choices[key]);
             }}>
-                <Text style={choiceButtonStyles.choice.buttonText}>{choices[key].name}</Text>
+                <Text style={choiceButtonStyles.choice.buttonText} key={index}>{choices[key].name}</Text>
             </Pressable>
         </View>
       ))}
