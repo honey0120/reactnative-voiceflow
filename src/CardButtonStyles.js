@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'; 
+import { colours } from './theme';
 
 export const cardButtonStyles = StyleSheet.create({
     button: {
-        backgroundColor: 'white',
+        backgroundColor: colours.white,
         borderTopWidth: 1,
-        borderTopColor: '#cccccc',
+        borderTopColor: colours.accent,
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
         cursor: 'pointer',
@@ -14,7 +15,7 @@ export const cardButtonStyles = StyleSheet.create({
     buttonText: {
         fontSize: 18,
         fontWeight: '500',
-        color: '#3D81E2',
+        color: colours.cardButtonFontColour,
         paddingTop: 10,
         paddingBottom: 10,
     }
