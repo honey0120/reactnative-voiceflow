@@ -3,20 +3,20 @@ import { StyleSheet } from 'react-native';
 export const choiceButtonStyles = StyleSheet.create({
     choice: {
         button: {
-            margin: 5,
             backgroundColor: 'white',
             borderWidth: 2,
             borderColor: '#FFAC2F',
             borderRadius: 20,
             cursor: 'pointer',
-            alignItems: 'center',
-            justifyContent: 'center',
+            alignSelf: 'flex-start',
+            marginBottom: 5,
+            marginLeft: 10,
+            marginRight: 10,
+            padding: 10
         },
         buttonText: {
             fontSize: 16,
-            color: '#FFAC2F',
-            paddingTop: 10,
-            paddingBottom: 10,
+            color: '#FFAC2F'
 
         }
     }
