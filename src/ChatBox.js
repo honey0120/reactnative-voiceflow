@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { View, ScrollView, Image, Text } from "react-native";
 import PropTypes from 'prop-types';
 import { ChoiceButton } from './ChoiceButton';
@@ -78,9 +78,20 @@ const prepMessageRecieved = (trace) => {
 };
 
 const ChatBox = ({messages, choices, isAwaitingResponse}) => {
+    const scrollViewRef = useRef(null); // Create a ref for ScrollView
+
+  // Scroll to the bottom whenever messages change
+  useEffect(() => {
+    if (scrollViewRef.current) {
+      // Small delay to ensure that new message is rendered before scrolling
+      setTimeout(() => {
+        scrollViewRef.current.scrollToEnd({ animated: true });
+      }, 100);
+    }
+  }, [messages]); // Effect runs whenever messages are updated
 
   return (
-    <ScrollView style={chatBoxStyles.chatbox}>
+    <ScrollView ref={scrollViewRef} style={chatBoxStyles.chatbox}>
       {messages.map((message, index) => (
         message.sender === 'user' ? (
           <View style={chatBoxStyles.message.sent} key={index}>
