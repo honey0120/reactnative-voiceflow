@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'; 
+import { colours } from './theme';
 
 
 export const inputBoxStyles = StyleSheet.create({
@@ -15,21 +16,21 @@ export const inputBoxStyles = StyleSheet.create({
             borderWidth: 2,
             borderRadius: 15,
             fontSize: 18,
-            borderColor: '#cccccc',
+            borderColor: colours.accent,
         },
         button: {
             paddingLeft: 15,
             paddingRight: 15,
             padding: 10,
-            backgroundColor: '#FFAC2F',
-            color: '#FFAC2F',
+            backgroundColor: colours.primary,
+            color: colours.primary,
             border: 'none',
             borderRadius: 15,
             cursor: 'pointer',
         },
         buttonText: {
             fontSize: 18,
-            color: 'white',
+            color: colours.white,
         }
     }
 });

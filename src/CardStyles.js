@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'; 
+import { colours } from './theme';
 
 export const cardStyles = StyleSheet.create({
   image: {
@@ -8,12 +9,12 @@ export const cardStyles = StyleSheet.create({
     borderTopRightRadius: 20,
   },
   container: {
-    backgroundColor: 'white',
+    backgroundColor: colours.white,
     marginTop: 5,
     marginBottom: 15,
     marginLeft: 10,
     width: 250,
-    shadowColor: '#000',
+    shadowColor: colours.shadow,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 20,  
@@ -21,9 +22,9 @@ export const cardStyles = StyleSheet.create({
     borderRadius: 20,
   },
   textBox: {
-    borderBottomColor: '#cccccc',
-    borderLeftColor: '#cccccc',
-    borderRightColor: '#cccccc',
+    borderBottomColor: colours.accent,
+    borderLeftColor: colours.accent,
+    borderRightColor: colours.accent,
     borderLeftWidth: 1,
     borderRightWidth: 1,
     borderBottomWidth: 1,
@@ -35,7 +36,7 @@ export const cardStyles = StyleSheet.create({
         marginTop: 5,
         marginBottom:15,
         fontSize: 16,
-        color: '#454545'
+        color: colours.black
     },
     titleText: {
         marginLeft: 10,
@@ -43,7 +44,7 @@ export const cardStyles = StyleSheet.create({
         marginTop: 5,
         fontSize: 20,
         fontWeight: 500, //~400 is normal
-        color: '#FFAC2F'
+        color: colours.primary
     }
   }
 });

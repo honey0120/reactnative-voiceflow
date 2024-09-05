@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native'; 
+import { colours } from './theme';
 
 export const choiceButtonStyles = StyleSheet.create({
     choice: {
         button: {
-            backgroundColor: 'white',
+            backgroundColor: colours.white,
             borderWidth: 2,
-            borderColor: '#FFAC2F',
+            borderColor: colours.primary,
             borderRadius: 20,
             cursor: 'pointer',
             alignSelf: 'flex-start',
@@ -16,7 +17,7 @@ export const choiceButtonStyles = StyleSheet.create({
         },
         buttonText: {
             fontSize: 16,
-            color: '#FFAC2F'
+            color: colours.primary
 
         }
     }

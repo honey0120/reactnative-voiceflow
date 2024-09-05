@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'; 
+import { colours } from './theme';
 
 
 export const chatBoxStyles = StyleSheet.create({
@@ -18,11 +19,11 @@ export const chatBoxStyles = StyleSheet.create({
           marginLeft: 10,
           padding: 10,
           borderRadius: 20,
-          backgroundColor: '#FFAC2F',
+          backgroundColor: colours.primary,
           alignSelf: 'flex-end',
           text: {
               fontSize: 16,
-              color: 'white'
+              color: colours.white
           }
       },
       received: {
@@ -31,11 +32,11 @@ export const chatBoxStyles = StyleSheet.create({
           marginRight: 10,
           padding: 10,
           borderRadius: 20,
-          backgroundColor: '#f2f2f2',
+          backgroundColor: colours.secondary,
           alignSelf: 'flex-start',
           text: {
               fontSize: 16,
-              color: '#454545'
+              color: colours.black
           }
       },
   },
