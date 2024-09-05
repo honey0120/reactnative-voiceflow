@@ -2,7 +2,7 @@
 
 A React Native custom interface for Voiceflow agents
 
-https://github.com/user-attachments/assets/caebe2d2-d5c1-4d85-987a-c17a21c3cd86
+https://github.com/user-attachments/assets/e691df96-384a-420c-8431-ebea44ce88aa
 
 (To-do: update video when final)
 
