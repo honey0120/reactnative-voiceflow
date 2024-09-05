@@ -3,6 +3,7 @@ import { React, useState } from "react";
 import useConversationState from './useConversationState';
 import ChatBox from './ChatBox';
 import InputBox from './InputBox';
+import { colours } from "./theme";
 
 const Agent = () => {
     const {
@@ -17,17 +18,17 @@ const Agent = () => {
     return (
         <View style={{ flex:1, marginBottom: 35 }}>
             <View style={{
-                backgroundColor: 'white',
+                backgroundColor: colours.white,
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderBottomWidth:2,
-                borderColor: '#cccccc',
+                borderColor: colours.accent,
                 marginTop: 40,
                 marginBottom: 5,
             }}>
                 <Text style={{
                     fontSize: 28,
-                    color: '#FFAC2F',
+                    color: colours.primary,
                     paddingTop: 20,
                     paddingBottom: 10,
                     alignItems: 'center',
