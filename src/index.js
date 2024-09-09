@@ -39,6 +39,7 @@ const Agent = () => {
               messages={messages}
               choices={choices}
               isAwaitingResponse={isAwaitingResponse}
+              userSendAction={userSendAction}
             />
             <InputBox
               userSendAction={userSendAction}

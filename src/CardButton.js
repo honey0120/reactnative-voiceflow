@@ -4,10 +4,15 @@ import PropTypes from 'prop-types';
 import { cardButtonStyles } from './CardButtonStyles';
 import useOpenURLInBrowser from './hooks/useOpenUrlInBrowser';
 
-const CardButton = ({buttons}) => {
+const CardButton = ({buttons, userSendAction}) => {
     const openURLInBrowser = useOpenURLInBrowser();
 
-    const handleActions = (actions) => {
+    const handleActions = (button) => {
+      const userAction = {type: button.request.type, payload: button.request.payload};
+      userSendAction(null, userAction);
+  };
+
+    const handleOpenURL = (actions) => {
         if (Array.isArray(actions) && actions.length != 0) {
           actions.forEach((action) => {
             //To-do: Handle other actions
@@ -23,9 +28,8 @@ const CardButton = ({buttons}) => {
       {Object.keys(buttons).map((key, index) => (
         <View style={cardButtonStyles.button} key={index}>
             <Pressable key={index} onPress={() => {
-                console.log("Card Button Pressed");
-                //To-do: Call to actionHandler function
-                handleActions(buttons[key].request.payload.actions)
+                handleOpenURL(buttons[key].request.payload.actions)
+                handleActions(buttons[key])
             }}>
                 <Text style={cardButtonStyles.buttonText}>{buttons[key].name}</Text>
             </Pressable>
