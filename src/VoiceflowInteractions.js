@@ -1,4 +1,3 @@
-//Hide this better eventually
 const EXPO_PUBLIC_VF_API_KEY = process.env.EXPO_PUBLIC_VF_API_KEY;
 
 const vfInteract = async (user, userAction) => {

@@ -19,7 +19,7 @@ const prepMessageSent = (message) => {
   );
 };
 
-const prepMessageRecieved = (trace) => {
+const prepMessageRecieved = (trace, userSendAction) => {
   if (trace.type === 'text') {
     return (
       <View>
@@ -50,7 +50,7 @@ const prepMessageRecieved = (trace) => {
     }
   } else if (trace.type === 'cardV2') {
     return (
-        <Card payload={trace.payload}/>
+        <Card payload={trace.payload} userSendAction={userSendAction}/>
     )
 } else if (trace.type === 'carousel') {
     return (
@@ -77,7 +77,7 @@ const prepMessageRecieved = (trace) => {
   }
 };
 
-const ChatBox = ({messages, choices, isAwaitingResponse}) => {
+const ChatBox = ({messages, choices, isAwaitingResponse, userSendAction}) => {
     const scrollViewRef = useRef(null); // Create a ref for ScrollView
 
   // Scroll to the bottom whenever messages change
@@ -100,7 +100,7 @@ const ChatBox = ({messages, choices, isAwaitingResponse}) => {
         ) : (
           prepMessageRecieved(message.content) === null ? null :
             <View key={index}>
-              {prepMessageRecieved(message.content)}
+              {prepMessageRecieved(message.content, userSendAction)}
             </View>
         )
       ))}
@@ -117,6 +117,7 @@ ChatBox.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.object),
   choices: PropTypes.object,
   isAwaitingResponse: PropTypes.bool,
+  userSendAction: PropTypes.func,
 };
 
 export default ChatBox;
