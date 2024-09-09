@@ -62,10 +62,11 @@ const prepMessageRecieved = (trace, userSendAction) => {
         <Text>{trace.payload.text}</Text>
       </View>
     );
-  } else if (
+  }  else if (
     trace.type === 'choice' ||
     trace.type === 'path' ||
-    trace.type === 'suggest_question_buttons'
+    trace.type === 'suggest_question_buttons' || 
+    trace.type === 'end'
   ) {
     return (null); //Handled further down
   } else {
