@@ -9,7 +9,9 @@ const CardButton = ({buttons, userSendAction}) => {
 
     const handleActions = (button) => {
       const userAction = {type: button.request.type, payload: button.request.payload};
-      userSendAction(null, userAction);
+      if (userSendAction !== undefined) {
+        userSendAction(null, userAction);
+      }
   };
 
     const handleOpenURL = (actions) => {
@@ -41,6 +43,7 @@ const CardButton = ({buttons, userSendAction}) => {
 
 CardButton.propTypes = {
   buttons: PropTypes.array,
+  userSendAction: PropTypes.func
 };
 
 export {CardButton};
