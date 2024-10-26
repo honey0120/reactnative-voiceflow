@@ -33,7 +33,7 @@ const Agent = () => {
                     paddingBottom: 10,
                     alignItems: 'center',
                     justifyContent: 'center',
-                }}>Cat Pic Agent</Text>
+                }}>Hotel Agent</Text>
             </View>
             <ChatBox
               messages={messages}
