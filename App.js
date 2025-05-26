@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import Agent from './src';
+import { useState } from 'react';
 
 export default function App() {
   return (
